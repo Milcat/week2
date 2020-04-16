@@ -12,11 +12,8 @@
 #'
 #' @return This function returns a data frame object of the filename that was read.
 #'
-#' @examples
-#' fars_read("accident_2015.csv")
-#' fars_read("C:\\coursera\\R_packages\\data\\accident_2015.csv")
-#'
 fars_read <- function(filename) {
+  system.file("extdata", filename, package="week2")
   if(!file.exists(filename))
     stop("file '", filename, "' does not exist")
   data <- suppressMessages({
@@ -34,13 +31,10 @@ fars_read <- function(filename) {
 #'
 #' @return This function returns a string of the relevant file name fo the specific year.
 #'
-#' @examples
-#' make_filename("2015")
-#' fars_read(2014)
-#'
 make_filename <- function(year) {
   year <- as.integer(year)
-  sprintf("accident_%d.csv.bz2", year)
+  file1<- sprintf("accident_%d.csv.bz2", year)
+  system.file("extdata", file1, package="week2")
 }
 
 #' Function fars_read_years
@@ -53,14 +47,12 @@ make_filename <- function(year) {
 #'
 #' @importFrom dplyr mutate select
 #'
+#' @importFrom tidyr %>%
+#'
 #' @param years A vector of the years to be read.
 #'
 #' @return This function returns a list of tables - one table per year.
 #'          Each table has 2 columns: MONTH and year taken from original file of that year.
-#'
-#' @examples
-#' fars_read_years(c("2014","2015"))
-#' fars_read_years(c(2015,2013))
 #'
 fars_read_years <- function(years) {
   lapply(years, function(year) {
@@ -81,7 +73,7 @@ fars_read_years <- function(years) {
 #' there were in each month of each year in USA (taken from relevant files for those years).
 #'
 #' @importFrom dplyr bind_rows group_by summarize
-#' @importFrom tidyr spread
+#' @importFrom tidyr spread %>%
 #'
 #' @param years A vector of the years to be read.
 #'

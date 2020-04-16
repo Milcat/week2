@@ -18,8 +18,3 @@ This function returns a data frame object of the filename that was read.
 This function gets as input a file name (of csv format), and
 and reads it to a data frame object, which is what the function returns.
 }
-\examples{
-fars_read("accident_2015.csv")
-fars_read("C:\\\\coursera\\\\R_packages\\\\data\\\\accident_2015.csv")
-
-}

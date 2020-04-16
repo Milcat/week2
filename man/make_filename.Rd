@@ -16,8 +16,3 @@ This function returns a string of the relevant file name fo the specific year.
 This function gets as input a year number (in any format),
 and outputs the relevant data file name for that year
 }
-\examples{
-make_filename("2015")
-fars_read(2014)
-
-}

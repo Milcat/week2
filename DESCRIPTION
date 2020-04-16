@@ -1,14 +1,20 @@
 Package: week2
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Package MyPackage
 Version: 0.1.0
-Author: Who wrote it
+Depends: R(>= 2.10)
+License: GPL-3
+Author: Milca Tarshish
+Imports: dplyr, graphics, maps, readr, tidyr
 Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Description: This package is intended to be used for getting some information on USA motor crashes..
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.1.0
 URL: https://github.com/Milcat/week2
 BugReports: https://github.com/Milcat/week2/issues
+Suggests: 
+    knitr,
+    rmarkdown,
+    testthat
+VignetteBuilder: knitr

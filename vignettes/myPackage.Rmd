@@ -1,0 +1,72 @@
+---
+title: "week2"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{MyPackage}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE, echo=FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup, echo=FALSE}
+library(dplyr)
+library(readr)
+library(tidyr)
+library(maps)
+library(graphics)
+library(week2)
+```
+
+## Package general information  
+This package is intended to be used for getting some information on USA motor crashes.
+
+## Functions  
+The user can use the following function:  
+
+### Function ars_summarize_years
+This function gets as input a list of years, and gives a summary of how many motor crashes 
+there were in each month of each year in USA (taken from relevant files for those years).
+
+##### Function arguments:
+**years:** A vector of the years to be read.
+
+##### Function output:
+This function returns data frame with a "MONTH" column,
+and one columns per each year in the "years" input argument.
+The values under each year column - is the number of motor crashes
+that happeded in that year - for this specific month.
+
+For example:
+
+```{r fars_summarize_years}
+fars_summarize_years(c(2013,2014))
+```
+
+### Function fars_map_state
+This function gets as input a state number (in USA) and a year.
+Its output is a map of this state with points located at the geographical
+location of motor crashes that happened in that state in that year.
+Note that invalid year (where no file exists for that year), or invalid state number will give an appropriate error.
+
+##### Function arguments:
+**state.num:** The state number in USA.  
+**years:** A vector of the years to be read.  
+
+##### Function output:
+This function returns a map of the specific state with all motor crash locations
+That happened in the specific year in that state. All data is taken from relevant file.
+For example:
+
+```{r fars_map_state}
+fars_map_state(1,2014)
+```
+
+
+
+

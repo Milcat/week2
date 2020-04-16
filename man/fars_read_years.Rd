@@ -20,8 +20,3 @@ relevant file of that year.
 The function also checks for valid data files for those years.
 A valid data file is a file which exists for this specific year.
 }
-\examples{
-fars_read_years(c("2014","2015"))
-fars_read_years(c(2015,2013))
-
-}
